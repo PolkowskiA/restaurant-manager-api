@@ -1,0 +1,13 @@
+type User {
+  id: ID!
+  email: String
+  name: String
+}
+type GetCurrentUserResponse {
+  user: User
+}
+
+type Query {
+  getAllUsers: [User]!
+  getCurrentUser: User!
+}

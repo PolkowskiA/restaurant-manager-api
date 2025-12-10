@@ -1,0 +1,46 @@
+interface BaseResponse {
+  message: String!
+  success: Boolean!
+}
+
+type GetCurrentUserResponse {
+  user: User
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse implements BaseResponse {
+  message: String!
+  success: Boolean!
+  user: User
+}
+
+type Mutation {
+  login(input: LoginInput!): LoginResponse!
+  register(input: RegisterInput!): RegisterResponse!
+}
+
+type Query {
+  getAllUsers: [User]!
+  getCurrentUser: User!
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+type RegisterResponse implements BaseResponse {
+  message: String!
+  success: Boolean!
+}
+
+type User {
+  email: String
+  id: ID!
+  name: String
+}
